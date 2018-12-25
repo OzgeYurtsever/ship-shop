@@ -1,5 +1,5 @@
 const pageConstants = {
-  name: 'ship-shop'
+  name: 'ShipShop'
 };
 
 export default pageConstants;
