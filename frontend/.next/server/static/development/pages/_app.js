@@ -440,7 +440,7 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var theme = {
-  red: 'rgb(255, 61, 96)',
+  red: '#FF3D60',
   black: '#393939',
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
