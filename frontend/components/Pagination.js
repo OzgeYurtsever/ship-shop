@@ -21,7 +21,7 @@ const Pagination = props => (
     {({ data, loading, error }) => {
       if (loading) return <p>Loading...</p>;
       const count = data.itemsConnection.aggregate.count;
-      const pages = Math.ceil(count / perPage);
+      const pages = count === 0 ? 1 : Math.ceil(count / perPage);
       const page = props.page;
       return (
         <PaginationStyles>
@@ -44,7 +44,7 @@ const Pagination = props => (
           <p>
             Page {props.page} of {pages}!
           </p>
-          <p>{count} Items Total</p>
+          {/* <p>{count} Items Total</p> */}
           <Link
             prefetch
             href={{

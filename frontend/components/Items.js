@@ -38,7 +38,7 @@ class Items extends Component {
         <Pagination page={this.props.page} />
         <Query
           query={ALL_ITEMS_QUERY}
-          // fetchPolicy="network-only"
+          fetchPolicy="network-only"
           variables={{
             skip: this.props.page * perPage - perPage
           }}
@@ -46,12 +46,16 @@ class Items extends Component {
           {({ data, error, loading }) => {
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: {error.message}</p>;
-            return (
+            return data.items.length > 0 ? (
               <ItemsList>
                 {data.items.map(item => (
                   <Item item={item} key={item.id} />
                 ))}
               </ItemsList>
+            ) : (
+              <h2 style={{ color: '#FF3D60' }}>
+                Nothing to show in the store, go ahead and sell yours!
+              </h2>
             );
           }}
         </Query>
